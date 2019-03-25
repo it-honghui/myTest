@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="slf4jLib">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/slf4jLib/slf4j-api-1.7.26.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/slf4jLib/ehcache-probe-1.0.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/slf4jLib/slf4j-jdk14-1.7.26.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/lib/slf4jLib/slf4j-api-1.7.26-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/slf4jLib/slf4j-jdk14-1.7.26-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

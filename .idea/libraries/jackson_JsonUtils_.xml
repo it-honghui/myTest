@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="jackson(JsonUtils)">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/jackson(JsonUtils)/jackson-core-2.2.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jackson(JsonUtils)/jackson-databind-2.2.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jackson(JsonUtils)/jackson-annotations-2.2.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jackson(JsonUtils)/jackson-mapper-asl-1.8.8.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
