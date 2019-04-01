@@ -1,5 +1,6 @@
 package com.wanghonghui.utils;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -156,5 +157,23 @@ public class DateUtils {
         Calendar calendar = Calendar.getInstance();
         calendar.set(Calendar.HOUR_OF_DAY, calendar.get(Calendar.HOUR_OF_DAY) - 2);
         String endTime = df.format(calendar.getTime()) + ":00:00";
+    }
+
+    /**
+     * 求出入参时间的本周时间数组
+     */
+    public static String[] getTimeWeekDayArray(String startDate, String typeR ,String typeC) throws ParseException {
+        SimpleDateFormat sfR = new SimpleDateFormat(typeR);
+        SimpleDateFormat sfC = new SimpleDateFormat(typeC);
+        String[] weekDayArray = new String[7];
+        for (int i = 0; i < 7; i++) {
+            Calendar cal1 = Calendar.getInstance();
+            cal1.setTime(sfR.parse(startDate));
+            cal1.set(cal1.DAY_OF_WEEK, cal1.MONDAY);
+            cal1.set(Calendar.DATE, cal1.get(cal1.DATE) + i);
+            String time = sfC.format(cal1.getTime());
+            weekDayArray[i] = time;
+        }
+        return weekDayArray;
     }
 }
