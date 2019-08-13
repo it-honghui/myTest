@@ -1,9 +1,11 @@
 package com.wanghonghui.utils;
 
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Locale;
 
 public class DateUtils {
 
@@ -162,7 +164,7 @@ public class DateUtils {
     /**
      * 求出入参时间的本周时间数组
      */
-    public static String[] getTimeWeekDayArray(String startDate, String typeR ,String typeC) throws ParseException {
+    public static String[] getTimeWeekDayArray(String startDate, String typeR, String typeC) throws ParseException {
         SimpleDateFormat sfR = new SimpleDateFormat(typeR);
         SimpleDateFormat sfC = new SimpleDateFormat(typeC);
         String[] weekDayArray = new String[7];
@@ -176,4 +178,47 @@ public class DateUtils {
         }
         return weekDayArray;
     }
+
+    /**
+     * 将2019-06-03T16:00:00.000Z日期格式转换为2019-06-03 16:00:00格式
+     *
+     * @param oldDateStr
+     * @return
+     */
+    public static Date transferDateFormat(String oldDateStr) {
+        Date date = null;
+        Date date1 = null;
+        String dateStr = null;
+        try {
+            dateStr = oldDateStr.replace("Z", " UTC");//是空格+UTC
+            DateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS Z");
+            date1 = df.parse(dateStr);
+            SimpleDateFormat df1 = new SimpleDateFormat("EEE MMM dd HH:mm:ss Z yyyy", Locale.UK);
+            date = df1.parse(date1.toString());
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return date;
+    }
+
+    public static int stringConversionInt(String dateStr, String dateType) throws Exception {
+        SimpleDateFormat sdf = new SimpleDateFormat(dateType);
+        Date date = sdf.parse(dateStr);
+        SimpleDateFormat df1 = new SimpleDateFormat("EEE MMM dd HH:mm:ss Z yyyy", Locale.UK);
+        date = df1.parse(date.toString());
+        return (int) (date.getTime() / 1000);
+    }
+
+    public static String getStartTime(String dateStr) throws Exception {
+        dateStr = dateStr.substring(0, 10);
+        String startTime = dateStr + " 00:00:00";
+        return startTime;
+    }
+
+    public static String getEndTime(String dateStr) throws Exception {
+        dateStr = dateStr.substring(0, 10);
+        String endTime = dateStr + " 23:59:59";
+        return endTime;
+    }
+
 }

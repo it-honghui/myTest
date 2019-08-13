@@ -126,4 +126,13 @@ public class DateTest {
         String endTime = df.format(calendar.getTime()) + ":00:00";
     }
 
+    @Test
+    public void demo6() throws Exception {
+        String time = "2019-08-08T09:40:31.433Z";
+        time = time.substring(0, 10);
+        String startTime = time + " 00:00:00";
+        String endTime = time + " 23:59:59";
+    }
+
+
 }

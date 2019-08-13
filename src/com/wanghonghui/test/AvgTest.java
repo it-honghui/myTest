@@ -3,6 +3,7 @@ package com.wanghonghui.test;
 public class AvgTest {
     /**
      * 平均数
+     *
      * @param args
      * @throws Exception
      */

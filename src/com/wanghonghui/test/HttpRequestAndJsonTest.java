@@ -45,6 +45,7 @@ public class HttpRequestAndJsonTest {
      * 使用fastjson包  --> JSONObject jsonObject = JSONObject.parseObject(jsonData);
      * map里面不是list --> Map<String, Object> map = jsonObject;
      * 是JSONArray    --> List<LeiNuoModel> list = JSONObject.parseArray(map.get("leiNuoModelXSList").toString(), LeiNuoModel.class);
+     *
      * @throws Exception
      */
     @Test

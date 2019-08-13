@@ -1,6 +1,6 @@
 package com.wanghonghui.test;
 
-public class StringTest {
+public class IndexOfTest {
     /**
      * 如果A中包含B
      *
