@@ -9,6 +9,7 @@ public class FindKth {
     }
 
     public static int findKth(int[] arr, int k) {
+        int count = 1;
 
         // 对数组进行排序
         if (arr != null) {
@@ -18,10 +19,14 @@ public class FindKth {
                         int temp = arr[j];
                         arr[j] = arr[j + 1];
                         arr[j + 1] = temp;
+                        count ++;
                     }
                 }
             }
         }
+
+        System.out.println("冒泡排序循环了：" + count + "次");
+
         // 思路就是直接从排序的数组中找奇数
         // 我们遍历数组，这个a就是第几个小的奇数，然后每次都与k比较，如果是就返回
         int a = 1;
