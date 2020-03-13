@@ -15,7 +15,7 @@ public class HttpRequestAndJsonTest {
     private static final Logger logger = LoggerFactory.getLogger(HttpRequestAndJsonTest.class);
 
     public static void main(String[] args) throws Exception {
-        String jsonData = HttpRequestUtils.sendPost("http://localhost:8080/tesla_console/leinuo/getLowScoreWarning.do", "");
+        String jsonData = HttpRequestUtils.sendPost("http://mh63pk.natappfree.cc/hiquestion/user/update", "");
         logger.info("jsonData:" + jsonData);
         if (!"".equals(jsonData) && null != jsonData) {
             JSONObject jsonObject = JSONObject.parseObject(jsonData);
