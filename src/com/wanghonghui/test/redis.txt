@@ -1,0 +1,36 @@
+private static volaite Object lockHelp = new Object();
+
+public String getValue(String key){
+    String value = redis.get(key,String.class);
+    if(value == "null" || value == null || StringUtils.isBlank(value)){
+        synchronized(lockHelp){
+            value = redis.get(key,String.class);
+            if(value == "null" || value == null || StringUtils.isBlank(value)){
+                value = db.query(key);
+                redis.set(key, value, 1000);
+            }
+        }
+    }    
+    return value;
+}
+
+public String get(key) {
+    String value = redis.get(key);
+    //代表缓存值过期
+    if (value == null) {
+        //设置3min的超时，防止del操作失败的时候，下次缓存过期一直不能load db
+        if (redis.setnx(key_mutex, 1, 3 * 60) == 1) {  //代表设置成功
+            value = db.get(key);
+            redis.set(key, value, expire_secs);
+            redis.del(key_mutex);
+            return value;
+        } else {  
+            //这个时候代表同时候的其他线程已经load db并回设到缓存了，这时候重试获取缓存值即可
+            sleep(10);
+            //重试
+            get(key);  
+        }
+    } else {
+        return value;      
+    }
+}
