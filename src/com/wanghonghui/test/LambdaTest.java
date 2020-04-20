@@ -509,4 +509,23 @@ public class LambdaTest {
                 .filter(x -> x.startsWith("L"))
                 .collect(Collectors.toCollection(ArrayList::new));
     }
+
+    @Test
+    public void test21() {
+        String lastOrderId = "Lemur";
+        List<String> list = Arrays.asList("Monkey", "Lion", "Giraffe", "Lemur", "Lion");
+
+        Set<String> saveCcOrderList = new HashSet<>();
+        for (int i = 0; i < 5; i++) {
+            for (String cc : list) {
+                if (!cc.equals(lastOrderId)) {
+                    saveCcOrderList.add(cc);
+                }else {
+                    break;
+                }
+            }
+        }
+
+        saveCcOrderList.forEach(System.out::println);
+    }
 }
